@@ -1,15 +1,14 @@
 package com.kaizencode.sensei.bootstrap;
 
-import com.kaizencode.sensei.model.*;
-import com.kaizencode.sensei.repository.ExerciseRepository;
-import com.kaizencode.sensei.repository.SeriesRepository;
-import com.kaizencode.sensei.repository.TrainingPlanRepository;
-import com.kaizencode.sensei.repository.TrainingRepository;
+import com.kaizencode.sensei.models.*;
+import com.kaizencode.sensei.repositories.ExerciseRepository;
+import com.kaizencode.sensei.repositories.SeriesRepository;
+import com.kaizencode.sensei.repositories.TrainingPlanRepository;
+import com.kaizencode.sensei.repositories.TrainingRepository;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
-import java.util.Collection;
 import java.util.Date;
 import java.util.LinkedList;
 

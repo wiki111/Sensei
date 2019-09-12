@@ -1,19 +1,19 @@
-package com.kaizencode.sensei.model;
+package com.kaizencode.sensei.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.LinkedList;
+import java.util.List;
 
 @Entity
-public class Exercise {
+public class TrainingPlan {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
     private String description;
-    private DifficultyLevel difficultyLevel;
+    @OneToMany(cascade = {CascadeType.ALL})
+    private List<Series> plannedSeries;
 
     public Long getId() {
         return id;
@@ -39,11 +39,11 @@ public class Exercise {
         this.description = description;
     }
 
-    public DifficultyLevel getDifficultyLevel() {
-        return difficultyLevel;
+    public List<Series> getPlannedSeries() {
+        return plannedSeries;
     }
 
-    public void setDifficultyLevel(DifficultyLevel difficultyLevel) {
-        this.difficultyLevel = difficultyLevel;
+    public void setPlannedSeries(LinkedList<Series> plannedSeries) {
+        this.plannedSeries = plannedSeries;
     }
 }
