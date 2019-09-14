@@ -1,4 +1,4 @@
-package com.kaizencode.sensei.models;
+package com.kaizencode.sensei.model;
 
 public enum DifficultyLevel {
     EASY,

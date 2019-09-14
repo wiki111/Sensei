@@ -1,11 +1,10 @@
 package com.kaizencode.sensei.controllers;
 
-import com.kaizencode.sensei.models.TrainingPlan;
+import com.kaizencode.sensei.model.TrainingPlan;
 import com.kaizencode.sensei.services.TrainingPlanService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
@@ -18,7 +17,7 @@ public class TrainingPlanController {
         this.trainingPlanService = trainingPlanService;
     }
 
-    @GetMapping({"/", "", "/test"})
+    @GetMapping({"/trainingplans/list"})
     public String showTrainingPlans(Model model){
 
         StringBuilder stringBuilder = new StringBuilder();
@@ -29,10 +28,9 @@ public class TrainingPlanController {
             stringBuilder.append("Training : " + trainingPlan.getDescription() + "\n");
         }
 
-        System.out.println(stringBuilder.toString());
         model.addAttribute("trainingPlans", stringBuilder.toString());
 
-        return "testview";
+        return "trainingplans/list";
 
     }
 }

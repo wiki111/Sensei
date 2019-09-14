@@ -1,6 +1,6 @@
 package com.kaizencode.sensei.bootstrap;
 
-import com.kaizencode.sensei.models.*;
+import com.kaizencode.sensei.model.*;
 import com.kaizencode.sensei.repositories.ExerciseRepository;
 import com.kaizencode.sensei.repositories.SeriesRepository;
 import com.kaizencode.sensei.repositories.TrainingPlanRepository;

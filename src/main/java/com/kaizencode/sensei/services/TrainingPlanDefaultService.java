@@ -1,12 +1,11 @@
 package com.kaizencode.sensei.services;
 
-import com.kaizencode.sensei.models.TrainingPlan;
+import com.kaizencode.sensei.model.TrainingPlan;
 import com.kaizencode.sensei.repositories.TrainingPlanRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class TrainingPlanDefaultService implements TrainingPlanService{
