@@ -12,7 +12,7 @@ public class TrainingPlan {
     private Long id;
     private String name;
     private String description;
-    @OneToMany(cascade = {CascadeType.ALL})
+    @OneToMany(cascade = {CascadeType.PERSIST})
     private List<Series> plannedSeries;
 
     public Long getId() {

@@ -11,10 +11,10 @@ public class Training {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @ManyToOne(cascade = {CascadeType.ALL})
+    @OneToOne(cascade = CascadeType.PERSIST)
     private TrainingPlan trainingPlan;
     private Date trainingTime;
-    @OneToMany(cascade = {CascadeType.ALL})
+    @OneToMany(cascade = {CascadeType.PERSIST})
     private List<Series> series;
 
     public Long getId() {

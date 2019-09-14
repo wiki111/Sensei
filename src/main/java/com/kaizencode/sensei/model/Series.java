@@ -8,7 +8,7 @@ public class Series {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @ManyToOne(cascade = {CascadeType.ALL})
+    @OneToOne(cascade = CascadeType.PERSIST)
     private Exercise exercise;
     private int reps;
 
