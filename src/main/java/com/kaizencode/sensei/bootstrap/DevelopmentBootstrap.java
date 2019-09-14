@@ -16,15 +16,9 @@ import java.util.LinkedList;
 public class DevelopmentBootstrap implements ApplicationListener<ContextRefreshedEvent> {
 
     private TrainingPlanRepository trainingPlanRepository;
-    private TrainingRepository trainingRepository;
-    private ExerciseRepository exerciseRepository;
-    private SeriesRepository seriesRepository;
 
-    public DevelopmentBootstrap(TrainingPlanRepository trainingPlanRepository, TrainingRepository trainingRepository, ExerciseRepository exerciseRepository, SeriesRepository seriesRepository) {
+    public DevelopmentBootstrap(TrainingPlanRepository trainingPlanRepository) {
         this.trainingPlanRepository = trainingPlanRepository;
-        this.trainingRepository = trainingRepository;
-        this.exerciseRepository = exerciseRepository;
-        this.seriesRepository = seriesRepository;
     }
 
     private void initData(){
@@ -83,6 +77,5 @@ public class DevelopmentBootstrap implements ApplicationListener<ContextRefreshe
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
         initData();
-
     }
 }
