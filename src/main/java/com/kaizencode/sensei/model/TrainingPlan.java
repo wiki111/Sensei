@@ -14,6 +14,11 @@ public class TrainingPlan {
     private String description;
     @OneToMany(cascade = {CascadeType.PERSIST})
     private List<Series> plannedSeries;
+    @ManyToMany(cascade = CascadeType.PERSIST)
+    @JoinTable(name = "training_plan_categories",
+            joinColumns = @JoinColumn(name = "training_plan_id"),
+            inverseJoinColumns = @JoinColumn(name = "category_id"))
+    private List<TrainingPlanCategory> trainingPlanCategories;
 
     public Long getId() {
         return id;
@@ -37,6 +42,14 @@ public class TrainingPlan {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public List<TrainingPlanCategory> getTrainingPlanCategories() {
+        return trainingPlanCategories;
+    }
+
+    public void setTrainingPlanCategories(List<TrainingPlanCategory> trainingPlanCategories) {
+        this.trainingPlanCategories = trainingPlanCategories;
     }
 
     public List<Series> getPlannedSeries() {

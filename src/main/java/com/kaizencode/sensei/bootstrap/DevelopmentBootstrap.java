@@ -9,6 +9,7 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedList;
 
@@ -59,6 +60,15 @@ public class DevelopmentBootstrap implements ApplicationListener<ContextRefreshe
         plannedSeries.add(series2);
         plannedSeries.add(series3);
 
+        TrainingPlanCategory category = new TrainingPlanCategory();
+        category.setDescription("Some example training category");
+        ArrayList<TrainingPlan> trainingPlanArrayList = new ArrayList<>();
+        trainingPlanArrayList.add(trainingPlan);
+        category.setTrainingPlanList(trainingPlanArrayList);
+        ArrayList<TrainingPlanCategory> categories = new ArrayList<>();
+        categories.add(category);
+        trainingPlan.setTrainingPlanCategories(categories);
+
         trainingPlan.setPlannedSeries(plannedSeries);
 
         //Because of cascade operations only trainingPlan or exampleTraining can be saved - not both, because
@@ -66,12 +76,6 @@ public class DevelopmentBootstrap implements ApplicationListener<ContextRefreshe
         //saving exampleTraining persistence operations cannot be cascaded down to child objects.
         trainingPlanRepository.save(trainingPlan);
 
-        Training exampleTraining = new Training();
-        exampleTraining.setSeries(plannedSeries);
-        exampleTraining.setTrainingPlan(trainingPlan);
-        exampleTraining.setTrainingTime(new Date());
-
-        //trainingRepository.save(exampleTraining);
     }
 
     @Override

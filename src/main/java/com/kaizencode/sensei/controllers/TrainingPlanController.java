@@ -25,7 +25,7 @@ public class TrainingPlanController {
         List<TrainingPlan> trainingPlans = trainingPlanService.getTrainingPlans();
 
         for (TrainingPlan trainingPlan : trainingPlans){
-            stringBuilder.append("Training : " + trainingPlan.getDescription() + "\n");
+            stringBuilder.append("Training : " + trainingPlan.getDescription() + " \n");
         }
 
         model.addAttribute("trainingPlans", stringBuilder.toString());
