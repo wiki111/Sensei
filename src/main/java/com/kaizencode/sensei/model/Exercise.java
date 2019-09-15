@@ -1,9 +1,6 @@
 package com.kaizencode.sensei.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Exercise {
@@ -13,6 +10,7 @@ public class Exercise {
     private Long id;
     private String name;
     private String description;
+    @Enumerated(value = EnumType.STRING)
     private DifficultyLevel difficultyLevel;
 
     public Long getId() {
