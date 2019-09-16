@@ -1,7 +1,10 @@
 package com.kaizencode.sensei.model;
 
+import lombok.*;
+
 import javax.persistence.*;
 
+@Data
 @Entity
 public class Series {
 
@@ -12,27 +15,4 @@ public class Series {
     private Exercise exercise;
     private int reps;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Exercise getExercise() {
-        return exercise;
-    }
-
-    public void setExercise(Exercise exercise) {
-        this.exercise = exercise;
-    }
-
-    public int getReps() {
-        return reps;
-    }
-
-    public void setReps(int reps) {
-        this.reps = reps;
-    }
 }

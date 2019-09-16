@@ -1,7 +1,10 @@
 package com.kaizencode.sensei.model;
 
+import lombok.*;
+
 import javax.persistence.*;
 
+@Data
 @Entity
 public class Exercise {
 
@@ -13,35 +16,4 @@ public class Exercise {
     @Enumerated(value = EnumType.STRING)
     private DifficultyLevel difficultyLevel;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public DifficultyLevel getDifficultyLevel() {
-        return difficultyLevel;
-    }
-
-    public void setDifficultyLevel(DifficultyLevel difficultyLevel) {
-        this.difficultyLevel = difficultyLevel;
-    }
 }

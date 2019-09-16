@@ -1,8 +1,11 @@
 package com.kaizencode.sensei.model;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.util.List;
 
+@Data
 @Entity
 public class TrainingPlanCategory {
 
@@ -13,27 +16,4 @@ public class TrainingPlanCategory {
     @ManyToMany(mappedBy = "trainingPlanCategories")
     private List<TrainingPlan> trainingPlanList;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public List<TrainingPlan> getTrainingPlanList() {
-        return trainingPlanList;
-    }
-
-    public void setTrainingPlanList(List<TrainingPlan> trainingPlanList) {
-        this.trainingPlanList = trainingPlanList;
-    }
 }

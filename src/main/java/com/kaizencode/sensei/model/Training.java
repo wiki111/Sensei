@@ -1,10 +1,13 @@
 package com.kaizencode.sensei.model;
 
+import lombok.*;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
+@Data
 @Entity
 public class Training {
 
@@ -17,35 +20,4 @@ public class Training {
     @OneToMany(cascade = {CascadeType.PERSIST})
     private List<Series> series;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public TrainingPlan getTrainingPlan() {
-        return trainingPlan;
-    }
-
-    public void setTrainingPlan(TrainingPlan trainingPlan) {
-        this.trainingPlan = trainingPlan;
-    }
-
-    public Date getTrainingTime() {
-        return trainingTime;
-    }
-
-    public void setTrainingTime(Date trainingTime) {
-        this.trainingTime = trainingTime;
-    }
-
-    public List<Series> getSeries() {
-        return series;
-    }
-
-    public void setSeries(LinkedList<Series> series) {
-        this.series = series;
-    }
 }

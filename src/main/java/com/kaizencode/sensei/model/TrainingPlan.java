@@ -1,9 +1,13 @@
 package com.kaizencode.sensei.model;
 
+import lombok.*;
+
 import javax.persistence.*;
 import java.util.LinkedList;
 import java.util.List;
 
+
+@Data
 @Entity
 public class TrainingPlan {
 
@@ -20,43 +24,4 @@ public class TrainingPlan {
             inverseJoinColumns = @JoinColumn(name = "category_id"))
     private List<TrainingPlanCategory> trainingPlanCategories;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public List<TrainingPlanCategory> getTrainingPlanCategories() {
-        return trainingPlanCategories;
-    }
-
-    public void setTrainingPlanCategories(List<TrainingPlanCategory> trainingPlanCategories) {
-        this.trainingPlanCategories = trainingPlanCategories;
-    }
-
-    public List<Series> getPlannedSeries() {
-        return plannedSeries;
-    }
-
-    public void setPlannedSeries(LinkedList<Series> plannedSeries) {
-        this.plannedSeries = plannedSeries;
-    }
 }
