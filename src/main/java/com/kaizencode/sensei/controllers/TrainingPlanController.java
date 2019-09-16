@@ -20,15 +20,9 @@ public class TrainingPlanController {
     @GetMapping({"/trainingplans/list"})
     public String showTrainingPlans(Model model){
 
-        StringBuilder stringBuilder = new StringBuilder();
-        //TODO : Make the service supply the list of training plans in form of String instead of doing it in a controller
         List<TrainingPlan> trainingPlans = trainingPlanService.getTrainingPlans();
 
-        for (TrainingPlan trainingPlan : trainingPlans){
-            stringBuilder.append("Training : " + trainingPlan.getDescription() + " \n");
-        }
-
-        model.addAttribute("trainingPlans", stringBuilder.toString());
+        model.addAttribute("trainingPlans", trainingPlans);
 
         return "trainingplans/list";
 
