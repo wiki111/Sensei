@@ -15,7 +15,7 @@
     <div>
         <p><b>Here is the list of training plans saved in app.</b></p>
         <ul th:each="plan : ${trainingPlans}">
-            <li th:text="${plan.name}"></li>
+            <li><a th:href="@{'/trainingplans/plan/'+${plan.id}}"><span th:text="${plan.name}"></span></a></li>
         </ul>
 
     </div>
