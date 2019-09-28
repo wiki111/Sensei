@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TrainingPlanDefaultService implements TrainingPlanService{
@@ -24,5 +25,16 @@ public class TrainingPlanDefaultService implements TrainingPlanService{
             trainingPlans.add(trainingPlan);
         }
         return trainingPlans;
+    }
+
+    @Override
+    public TrainingPlan getTrainingPlanById(Long id) {
+        Optional<TrainingPlan> trainingPlan = trainingPlanRepository.findById(id);
+
+        if(!trainingPlan.isPresent()){
+            throw new RuntimeException("Couldn't find training plan of id " + id);
+        }
+
+        return trainingPlan.get();
     }
 }
