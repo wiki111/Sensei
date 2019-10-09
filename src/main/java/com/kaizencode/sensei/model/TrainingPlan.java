@@ -3,6 +3,7 @@ package com.kaizencode.sensei.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -24,4 +25,8 @@ public class TrainingPlan {
             inverseJoinColumns = @JoinColumn(name = "category_id"))
     private List<TrainingPlanCategory> trainingPlanCategories;
 
+    public List<TrainingPlanCategory> getTrainingPlanCategories() {
+        trainingPlanCategories = new ArrayList<>();
+        return trainingPlanCategories;
+    }
 }

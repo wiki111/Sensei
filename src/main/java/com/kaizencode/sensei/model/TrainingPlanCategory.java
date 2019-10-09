@@ -13,7 +13,7 @@ public class TrainingPlanCategory {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String description;
+    private String name;
     @ManyToMany(mappedBy = "trainingPlanCategories")
     @ToString.Exclude
     private List<TrainingPlan> trainingPlanList;

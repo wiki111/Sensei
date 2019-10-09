@@ -61,7 +61,7 @@ public class DevelopmentBootstrap implements ApplicationListener<ContextRefreshe
         plannedSeries.add(series3);
 
         TrainingPlanCategory category = new TrainingPlanCategory();
-        category.setDescription("Some example training category");
+        category.setName("ExampleCategory");
         ArrayList<TrainingPlan> trainingPlanArrayList = new ArrayList<>();
         trainingPlanArrayList.add(trainingPlan);
         category.setTrainingPlanList(trainingPlanArrayList);
