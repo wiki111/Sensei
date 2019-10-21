@@ -61,7 +61,7 @@ class TrainingPlanControllerTest {
 
         when(trainingPlanService.getTrainingPlanById(anyLong())).thenReturn(trainingPlan);
 
-        mockMvc.perform(get("/trainingplans/plan/1"))
+        mockMvc.perform(get("/trainingplans/1/show"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("/trainingplans/show"))
                 .andExpect(model().attribute("trainingPlan", trainingPlan));
