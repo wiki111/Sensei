@@ -11,4 +11,5 @@ public interface TrainingPlanService {
     List<TrainingPlan> getTrainingPlans();
     TrainingPlan getTrainingPlanById(Long id);
     TrainingPlanCommand savePlanCommand(TrainingPlanCommand command);
+    TrainingPlanCommand getTrainingCommandById(Long id);
 }

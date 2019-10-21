@@ -26,18 +26,22 @@ public class TrainingPlanToCommand implements Converter<TrainingPlan, TrainingPl
         command.setId(trainingPlan.getId());
         command.setName(trainingPlan.getName());
         command.setDescription(trainingPlan.getDescription());
-        command.setSeriesCommands(
-                trainingPlan.getPlannedSeries()
-                        .stream()
-                        .map(plan -> seriesConverter.convert(plan))
-                        .collect(Collectors.toList())
-        );
-        command.setCategoriesCommands(
-                trainingPlan.getTrainingPlanCategories()
-                        .stream()
-                        .map(cat -> categoryConverter.convert(cat))
-                        .collect(Collectors.toList())
-        );
+        if(trainingPlan.getPlannedSeries() != null){
+            command.setSeriesCommands(
+                    trainingPlan.getPlannedSeries()
+                            .stream()
+                            .map(plan -> seriesConverter.convert(plan))
+                            .collect(Collectors.toList())
+            );
+        }
+        if(trainingPlan.getTrainingPlanCategories() != null){
+            command.setCategoriesCommands(
+                    trainingPlan.getTrainingPlanCategories()
+                            .stream()
+                            .map(cat -> categoryConverter.convert(cat))
+                            .collect(Collectors.toList())
+            );
+        }
         return command;
     }
 }

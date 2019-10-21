@@ -28,12 +28,16 @@ public class CommandToTrainingPlan implements Converter<TrainingPlanCommand, Tra
         trainingPlan.setId(trainingPlanCommand.getId());
         trainingPlan.setName(trainingPlanCommand.getName());
         trainingPlan.setDescription(trainingPlanCommand.getDescription());
-        trainingPlan.setPlannedSeries(
-                trainingPlanCommand.getSeriesCommands().stream().map(s -> seriesConverter.convert(s)).collect(Collectors.toList())
-        );
-        trainingPlan.setTrainingPlanCategories(
-                trainingPlanCommand.getCategoriesCommands().stream().map(c -> categoryConverter.convert(c)).collect(Collectors.toList())
-        );
+        if (trainingPlanCommand.getSeriesCommands() != null) {
+            trainingPlan.setPlannedSeries(
+                    trainingPlanCommand.getSeriesCommands().stream().map(s -> seriesConverter.convert(s)).collect(Collectors.toList())
+            );
+        }
+        if(trainingPlanCommand.getCategoriesCommands() != null){
+            trainingPlan.setTrainingPlanCategories(
+                    trainingPlanCommand.getCategoriesCommands().stream().map(c -> categoryConverter.convert(c)).collect(Collectors.toList())
+            );
+        }
         return trainingPlan;
     }
 }

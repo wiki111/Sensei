@@ -8,6 +8,7 @@ import com.kaizencode.sensei.repositories.TrainingPlanRepository;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -50,7 +51,27 @@ public class TrainingPlanDefaultService implements TrainingPlanService{
     @Transactional
     public TrainingPlanCommand savePlanCommand(TrainingPlanCommand command) {
         TrainingPlan detachedPlan = commandToPlan.convert(command);
+        if(detachedPlan.getId() != null){
+            TrainingPlan originalPlan = getTrainingPlanById(command.getId());
+            if(detachedPlan.getName() == null){
+                detachedPlan.setName(originalPlan.getName());
+            }
+            if(detachedPlan.getDescription() == null){
+                detachedPlan.setDescription(originalPlan.getDescription());
+            }
+            if(detachedPlan.getPlannedSeries() == null){
+                detachedPlan.setPlannedSeries(originalPlan.getPlannedSeries());
+            }
+            if(detachedPlan.getTrainingPlanCategories() == null){
+                detachedPlan.setTrainingPlanCategories(originalPlan.getTrainingPlanCategories());
+            }
+        }
         TrainingPlan savedPlan = trainingPlanRepository.save(detachedPlan);
         return planToCommand.convert(savedPlan);
+    }
+
+    @Override
+    public TrainingPlanCommand getTrainingCommandById(Long id) {
+        return planToCommand.convert(getTrainingPlanById(id));
     }
 }
