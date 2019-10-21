@@ -4,7 +4,6 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 
@@ -19,13 +18,10 @@ public class TrainingPlan {
     private String description;
     @OneToMany(cascade = {CascadeType.PERSIST})
     private List<Series> plannedSeries;
-    @ManyToMany(cascade = CascadeType.PERSIST)
-    @JoinTable(name = "training_plan_categories",
-            joinColumns = @JoinColumn(name = "training_plan_id"),
-            inverseJoinColumns = @JoinColumn(name = "category_id"))
-    private List<TrainingPlanCategory> trainingPlanCategories;
+    @OneToMany(cascade = CascadeType.PERSIST)
+    private List<Category> trainingPlanCategories;
 
-    public List<TrainingPlanCategory> getTrainingPlanCategories() {
+    public List<Category> getTrainingPlanCategories() {
         trainingPlanCategories = new ArrayList<>();
         return trainingPlanCategories;
     }

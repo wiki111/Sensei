@@ -1,16 +1,12 @@
 package com.kaizencode.sensei.bootstrap;
 
 import com.kaizencode.sensei.model.*;
-import com.kaizencode.sensei.repositories.ExerciseRepository;
-import com.kaizencode.sensei.repositories.SeriesRepository;
 import com.kaizencode.sensei.repositories.TrainingPlanRepository;
-import com.kaizencode.sensei.repositories.TrainingRepository;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.LinkedList;
 
 @Component
@@ -60,12 +56,11 @@ public class DevelopmentBootstrap implements ApplicationListener<ContextRefreshe
         plannedSeries.add(series2);
         plannedSeries.add(series3);
 
-        TrainingPlanCategory category = new TrainingPlanCategory();
+        Category category = new Category();
         category.setName("ExampleCategory");
         ArrayList<TrainingPlan> trainingPlanArrayList = new ArrayList<>();
         trainingPlanArrayList.add(trainingPlan);
-        category.setTrainingPlanList(trainingPlanArrayList);
-        ArrayList<TrainingPlanCategory> categories = new ArrayList<>();
+        ArrayList<Category> categories = new ArrayList<>();
         categories.add(category);
         trainingPlan.setTrainingPlanCategories(categories);
 

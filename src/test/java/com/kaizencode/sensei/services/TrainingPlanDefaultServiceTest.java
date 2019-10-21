@@ -1,5 +1,7 @@
 package com.kaizencode.sensei.services;
 
+import com.kaizencode.sensei.converters.CommandToTrainingPlan;
+import com.kaizencode.sensei.converters.TrainingPlanToCommand;
 import com.kaizencode.sensei.model.TrainingPlan;
 import com.kaizencode.sensei.repositories.TrainingPlanRepository;
 import org.junit.Before;
@@ -21,11 +23,17 @@ class TrainingPlanDefaultServiceTest {
     @Mock
     TrainingPlanRepository trainingPlanRepository;
 
+    @Mock
+    CommandToTrainingPlan commandToPlan;
+
+    @Mock
+    TrainingPlanToCommand planToCommand;
+
     @BeforeEach
     public void setUp() throws Exception{
         MockitoAnnotations.initMocks(this);
 
-        trainingPlanDefaultService = new TrainingPlanDefaultService(trainingPlanRepository);
+        trainingPlanDefaultService = new TrainingPlanDefaultService(trainingPlanRepository, commandToPlan, planToCommand);
     }
 
     @org.junit.jupiter.api.Test
@@ -36,11 +44,12 @@ class TrainingPlanDefaultServiceTest {
         testList.add(testTrainingPlan);
         Iterable<TrainingPlan> trainingPlansIter = testList;
 
-         when(trainingPlanRepository.findAll()).thenReturn(trainingPlansIter);
+        when(trainingPlanRepository.findAll()).thenReturn(trainingPlansIter);
 
         List<TrainingPlan> trainingPlans = trainingPlanDefaultService.getTrainingPlans();
 
         assertEquals(trainingPlans.size(), 1);
-
     }
+
+
 }

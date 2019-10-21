@@ -1,7 +1,7 @@
 package com.kaizencode.sensei.repositories;
 
 import com.kaizencode.sensei.model.TrainingPlan;
-import com.kaizencode.sensei.model.TrainingPlanCategory;
+import com.kaizencode.sensei.model.Category;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class TrainingPlanRepositoryIT {
 
     TrainingPlan testTrainingPlan;
-    TrainingPlanCategory testCategory;
+    Category testCategory;
 
     @Autowired
     TrainingPlanRepository trainingPlanRepository;
@@ -26,7 +26,7 @@ class TrainingPlanRepositoryIT {
     @BeforeEach
     void setUp() {
         testTrainingPlan = new TrainingPlan();
-        testCategory = new TrainingPlanCategory();
+        testCategory = new Category();
 
         testTrainingPlan.setName("Test training plan");
 

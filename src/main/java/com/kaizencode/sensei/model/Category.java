@@ -8,14 +8,11 @@ import java.util.List;
 
 @Data
 @Entity
-public class TrainingPlanCategory {
+public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
-    @ManyToMany(mappedBy = "trainingPlanCategories")
-    @ToString.Exclude
-    private List<TrainingPlan> trainingPlanList;
 
 }
